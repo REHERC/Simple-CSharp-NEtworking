@@ -106,6 +106,8 @@ namespace Networking
 					networkObject.Write(compressed, 0, compressed.Length);
 					networkObject.Flush();
 				}
+
+				Thread.Sleep(THREAD_SLEEP);
 			}
 		}
 
@@ -145,6 +147,8 @@ namespace Networking
 							//WriteLine("EXIT " + e.ToString());
 						}
 					}
+
+					Thread.Sleep(THREAD_SLEEP);
 				}
 			}
 		}

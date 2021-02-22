@@ -19,7 +19,9 @@ internal class ServerProgram
 
 		while (server.Started)
 		{
-			server.SendPacket(LogMessage.Create(ReadLine()));
+			string message = ReadLine();
+			PacketBase packet = LogMessage.Create(message);
+			server.SendPacket(packet);
 		}
 
 

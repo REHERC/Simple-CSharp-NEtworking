@@ -34,24 +34,21 @@ namespace Networking.Nodes
 
 		protected override void Run()
 		{
-			while (Running)
+			//WriteLine($"Waiting for TCP client... ({address}:{port})");
+			ClientConnexion = ListenerConnexion.AcceptTcpClient();
+			//WriteLine("Connected!");
+
+			Stream = ClientConnexion.GetStream();
+
+			Stream.ReadTimeout = READ_TIMEOUT;
+			Stream.WriteTimeout = WRITE_TIMEOUT;
+
+			ClientConnexion.ReceiveTimeout = READ_TIMEOUT;
+			ClientConnexion.SendTimeout = WRITE_TIMEOUT;
+
+			while (Running && ClientConnexion.Client.Connected)
 			{
-				//WriteLine($"Waiting for TCP client... ({address}:{port})");
-				ClientConnexion = ListenerConnexion.AcceptTcpClient();
-				//WriteLine("Connected!");
-
-				Stream = ClientConnexion.GetStream();
-
-				Stream.ReadTimeout = READ_TIMEOUT;
-				Stream.WriteTimeout = WRITE_TIMEOUT;
-
-				ClientConnexion.ReceiveTimeout = READ_TIMEOUT;
-				ClientConnexion.SendTimeout = WRITE_TIMEOUT;
-
-				while (ClientConnexion.Client.Connected)
-				{
-					Thread.Sleep(THREAD_SLEEP);
-				}
+				Thread.Sleep(THREAD_SLEEP);
 			}
 		}
 

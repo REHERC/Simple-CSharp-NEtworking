@@ -19,10 +19,10 @@ internal class ClientProgram
 
 		while (client.Started)
 		{
-			client.SendPacket(LogMessage.Create(ReadLine()));
+			string message = ReadLine();
+			PacketBase packet = LogMessage.Create(message);
+			client.SendPacket(packet);
 		}
-		
-		ReadLine();
 	}
 
 
