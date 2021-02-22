@@ -2,6 +2,7 @@
 {
 	public enum PacketID : ulong
 	{
-		LogMessage
+		LogMessage,
+		Notification
 	}
 }

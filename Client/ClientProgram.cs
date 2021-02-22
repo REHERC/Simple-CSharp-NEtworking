@@ -12,6 +12,11 @@ internal class ClientProgram
 		var client = new Networker<Client>("127.0.0.1", 5000);
 		client.OnPacketReceived += (sender, packet) =>
 		{
+			if (packet is LogMessage)
+			{
+				client.SendPacket(Notification.Create());
+			}
+
 			packet?.Run();
 		};
 

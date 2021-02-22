@@ -12,18 +12,17 @@ internal class ServerProgram
 		var server = new Networker<Server>("127.0.0.1", 5000);
 		server.OnPacketReceived += (sender, packet) =>
 		{
-			packet?.Run();
+			if (packet is LogMessage)
+			{
+				server.SendPacket(packet);
+			}
+			else
+			{
+				packet.Run();
+			}
 		};
 		
 		server.Start();
-
-		while (server.Started)
-		{
-			string message = ReadLine();
-			PacketBase packet = LogMessage.Create(message);
-			server.SendPacket(packet);
-		}
-
 
 		ReadLine();
 	}

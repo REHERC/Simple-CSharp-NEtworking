@@ -6,7 +6,6 @@ using System.IO;
 using System.Threading;
 using static Networking.Compression;
 using static Networking.Constants;
-using static System.Console;
 
 namespace Networking
 {

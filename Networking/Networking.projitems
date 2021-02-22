@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)PacketBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PacketID.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Communication\NetworkServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Packets\Notification.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Packets\LogMessage.cs" />
