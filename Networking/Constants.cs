@@ -5,7 +5,6 @@ namespace Networking
 	public static class Constants
 	{
 		public const int BUFFER_SIZE = 16;
-		public const string DATA_END = "\0\0\0\0\0\0\0\0";
 
 		// Set to at least 1
 		// Increases latency the higher it is set

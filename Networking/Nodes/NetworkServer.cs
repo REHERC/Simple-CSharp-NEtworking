@@ -1,6 +1,5 @@
 ﻿using System.Net.Sockets;
 using System.Threading;
-//using static System.Console;
 using static Networking.Constants;
 
 namespace Networking.Nodes
@@ -34,9 +33,7 @@ namespace Networking.Nodes
 
 		protected override void Run()
 		{
-			//WriteLine($"Waiting for TCP client... ({address}:{port})");
 			ClientConnexion = ListenerConnexion.AcceptTcpClient();
-			//WriteLine("Connected!");
 
 			Stream = ClientConnexion.GetStream();
 
@@ -60,7 +57,6 @@ namespace Networking.Nodes
 			ListenerConnexion?.Stop();
 			ClientConnexion = null;
 			ListenerConnexion = null;
-
 
 			if (Thread != null && Thread.IsAlive)
 			{

@@ -26,25 +26,4 @@ internal class ServerProgram
 
 		ReadLine();
 	}
-
-	public static void Nothing()
-	{
-		Title = "TCP Server";
-
-		var server = new Server("127.0.0.1", 5000);
-		server.Start();
-
-		using (var reader = server.CreateReader())
-		{
-			while (server.Running)
-			{
-				if (!reader.EndOfStream)
-				{
-					WriteLine(reader.ReadLine());
-				}
-			}
-		}
-
-		ReadLine();
-	}
 }
